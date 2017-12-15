@@ -1,8 +1,8 @@
 # GoCal
 
-Hacking a Google Calendar terminal viewer because terminal > browser and all the other clients suck
+Hacking a Google Calendar terminal viewer because terminal > browser and all the other clients suck.
 
-# Features
+## Features
 
 * View your upcoming events.
 * Err.. that's it. 
@@ -21,4 +21,11 @@ This gives the following output the terminal
     15/12/2017 15:00 | On site interview with Linus Torvalds
     15/12/2017 16:00 | Monthly Staff Meeting
 
+## Installation
+
+Dependencies managed using [`dep`][2]. If you have the tool installed just run
+
+    dep ensure
+
 [1]: https://developers.google.com/google-apps/calendar/quickstart/go
+[2]: https://github.com/golang/dep
