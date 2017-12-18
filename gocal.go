@@ -70,6 +70,18 @@ func tokenCacheFile() (string, error) {
 		url.QueryEscape("calendar-go-quickstart.json")), err
 }
 
+// clientSecretFile generates the client secret file path/filename.
+// It returns the generated client secret path/filename.
+func clientSecretFile() (string, error) {
+	usr, err := user.Current()
+	if err != nil {
+		return "", err
+	}
+	clientSecretDir := filepath.Join(usr.HomeDir, ".credentials")
+	return filepath.Join(clientSecretDir,
+		url.QueryEscape("client_secret.json")), err
+}
+
 // tokenFromFile retrieves a Token from a given file path.
 // It returns the retrieved Token and any read error encountered.
 func tokenFromFile(file string) (*oauth2.Token, error) {
@@ -98,7 +110,12 @@ func saveToken(file string, token *oauth2.Token) {
 func main() {
 	ctx := context.Background()
 
-	b, err := ioutil.ReadFile("client_secret.json")
+	cs, err := clientSecretFile()
+	if err != nil {
+		log.Fatalf("Unable to get path to client secret file. %v", err)
+	}
+
+	b, err := ioutil.ReadFile(cs)
 	if err != nil {
 		log.Fatalf("Unable to read client secret file: %v", err)
 	}
