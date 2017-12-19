@@ -13,6 +13,10 @@ The `column` command is used to format the output since it does a good job of th
 
     gocal | column -t -o  " |" -s ","
 
+If you don't want to type this every time add an alias to your shell
+
+    alias gocal="gocal | column -t -o  \" |\" -s \",\""
+
 This gives the following output the terminal
 
     15/12/2017 10:30 | Standup
