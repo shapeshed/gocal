@@ -64,7 +64,7 @@ func tokenCacheFile() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	tokenCacheDir := filepath.Join(usr.HomeDir, ".credentials")
+	tokenCacheDir := filepath.Join(usr.HomeDir, ".gocal")
 	os.MkdirAll(tokenCacheDir, 0700)
 	return filepath.Join(tokenCacheDir,
 		url.QueryEscape("calendar-go-quickstart.json")), err
@@ -77,7 +77,7 @@ func clientSecretFile() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	clientSecretDir := filepath.Join(usr.HomeDir, ".credentials")
+	clientSecretDir := filepath.Join(usr.HomeDir, ".gocal")
 	return filepath.Join(clientSecretDir,
 		url.QueryEscape("client_secret.json")), err
 }
