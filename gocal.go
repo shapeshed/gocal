@@ -19,7 +19,7 @@ import (
 )
 
 const (
-	timeFormat = "2006-01-02T15:04:05Z"
+	timeFormat = "2006-01-02T15:04:05-07:00"
 	dateFormat = "02/01/2006 15:04"
 )
 
